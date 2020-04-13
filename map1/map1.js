@@ -6,5 +6,9 @@ var renameThisPolygonObject = L.polygon([
   [30.26, -97.73],
   [29.74, -95.35]
 ]).addTo(map1)
+var renameThisPolylineObject = L.polyline([
+  [32.52, -93.76],
+  [30.26, -93.21],
+]).addTo(map1)
 renameThisPolygonObject.bindPopup('Texas.')
 renameThisMarkerObject.bindPopup('Baton Rouge.')
