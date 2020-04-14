@@ -1,3 +1,6 @@
 var map3 = L.map('map3').setView([32.18, -99.14], 5)
 L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(map3)
-var nolaswb = 'https://opendata.arcgis.com/datasets/4d69d63b666547c1905977a3356cef3c_0.geojson'
+var statesurl1 = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
+jQuery.getJSON(statesurl1, function (data) {
+  L.geoJSON(data,{ style: { color: 'green' } }).addTo(map3)
+})
