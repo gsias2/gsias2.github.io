@@ -5,12 +5,16 @@ jQuery.getJSON(statesurl1, function (data) {
   var statestyle = function (feature) {
   var AVERAGEHOUSEHOLDSIZE = feature.properties.AVERAGEHOUSEHOLDSIZE // get the current state's Median Age attribute
   var statecolor = 'olive' // let the initial color be a darker green
-  if (AVERAGEHOUSEHOLDSIZE < 2) { statecolor = 'green' } // if the state's median age is less than the average, color it a lighter green
+  if (AVERAGEHOUSEHOLDSIZE < 4) { statecolor = 'green' } // if the state's median age is less than the average, color it a lighter green
   return {
     color: statecolor, // use the color variable above for the value
     weight: 1,
     fillOpacity: 0.2
   }
+}
+var renameThisGeojsonOptionsObject = {
+  style: renameThisStyleFunction,
+  onEachFeature: renameThisOnEachFeatureFunction
 }
   L.geoJSON(data,{ style: statestyle }).addTo(map3)
 })
