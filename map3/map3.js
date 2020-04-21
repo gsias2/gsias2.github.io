@@ -3,18 +3,17 @@ L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(map3)
 var statesurl1 = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
 jQuery.getJSON(statesurl1, function (data) {
   var statestyle = function (feature) {
-  var AVERAGEHOUSEHOLDSIZE = feature.properties.AVERAGEHOUSEHOLDSIZE
+  var BLACK = feature.properties.BLACK
   var statecolor = 'olive'
-  if (AVERAGEHOUSEHOLDSIZE < 2) { statecolor = 'green' }
+  if (BLACK < 20000) { statecolor = 'green' }
   return {
-    color: statecolor, 
+    color: statecolor,
     weight: 1,
     fillOpacity: 0.2
   }
 }
-var renameThisGeojsonOptionsObject = {
-  style: renameThisStyleFunction,
-  onEachFeature: renameThisOnEachFeatureFunction
+var geojsonOptions = {
+  style: statestyle
 }
-  L.geoJSON(data,{ style: statestyle }).addTo(map3)
+  L.geoJSON(data, geojsonOptions).addTo(map3)
 })
