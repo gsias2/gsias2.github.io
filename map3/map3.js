@@ -1,5 +1,5 @@
 var map3 = L.map('map3').setView([32.18, -99.14], 5)
-L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png').addTo(map3)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3)
 var statesurl1 = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
 jQuery.getJSON(statesurl1, function (data) {
   var statestyle = function (feature) {
@@ -9,11 +9,18 @@ jQuery.getJSON(statesurl1, function (data) {
   return {
     color: statecolor,
     weight: 1,
-    fillOpacity: 0.2
+    fillOpacity: 0.2,
+    fill: statecolor
   }
 }
-var geojsonOptions = {
-  style: statestyle
+var stateLayerOptions = {
+  style: statestyle,
+  onEachFeature: createPopup
 }
-  L.geoJSON(data, geojsonOptions).addTo(map3)
+  L.geoJSON(data, stateLayerOptions).addTo(map3)
 })
+var createPopup = function (feature, layer) {
+  var name = feature.properties.STATE_NAME
+     var BLACK = feature.properties.BLACK
+     layer.bindPopup('BLACK' + name + ': ' + POP2010 + '<br>National population: 41400000')
+   }
