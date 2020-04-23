@@ -3,9 +3,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map3)
 var statesurl1 = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
 jQuery.getJSON(statesurl1, function (data) {
   var statestyle = function (feature) {
-  var BLACK = feature.properties.BLACK
+  var black = feature.properties.BLACK
   var statecolor = 'olive'
-  if (BLACK < 20000) { statecolor = 'green' }
+  if (black < 20000) { statecolor = 'green' }
   return {
     color: statecolor,
     weight: 1,
@@ -21,6 +21,6 @@ var stateLayerOptions = {
 })
 var createPopup = function (feature, layer) {
   var name = feature.properties.STATE_NAME
-     var BLACK = feature.properties.BLACK
-     layer.bindPopup('BLACK' + name + ': ' + POP2010 + '<br>National population: 41400000')
+  var black = feature.properties.BLACK
+     layer.bindPopup('BLACK' + name + ': ' + feature.properties.POP2010 + '<br>National population: 41400000')
    }
