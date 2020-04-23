@@ -23,5 +23,5 @@ var createPopup = function (feature, layer) {
   var name = feature.properties.STATE_NAME
   var black = feature.properties.BLACK
   var pop2010 = feature.properties.POP2010
-     layer.bindPopup('Black Population of' + name + ': ' black + '<br>Total population: pop2010')
+     layer.bindPopup('Black Population of' + name + ':' black + '<br>Total population: pop2010')
    }
