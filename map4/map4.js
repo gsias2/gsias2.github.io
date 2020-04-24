@@ -25,10 +25,3 @@ jQuery('#Arts Council of New Orleans').on('click', function () {
     durationSeconds: 3
   })
 })
-jQuery('#Contemporary Arts Center').on('click', function () {
-  map4.setView([29.943, -90.070], 17, {
-    headingDegrees: -45,
-    animate: true,
-    durationSeconds: 3
-  })
-})
