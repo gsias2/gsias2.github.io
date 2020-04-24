@@ -9,3 +9,16 @@ var bikerstationurl = 'https://opendata.arcgis.com/datasets/63aa98f68bd54e528d7a
 jQuery.getJSON(bikerstationurl, function (data) {
   L.geoJSON(data).addTo(map4)
 })
+L.geoJSON(data, {
+  onEachFeature: renameThisCreatePopupFunction
+}).addTo(map4)
+var renameThisCreatePopupFunction = function (feature, layer) {
+  layer.bindPopup(feature.properties.NAME)
+}
+jQuery('#City Hall - Superdome').on('click', function () {
+  renameThisMap.setView([29.957, -90.063], 17, {
+    headingDegrees: -45,
+    animate: true,
+    durationSeconds: 3
+  })
+})
