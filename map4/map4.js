@@ -1,5 +1,5 @@
-var map4 = L.Wrld.map('map', 'e65117ae7fb552545c72547b0314b47d')
-var map4 = L.Wrld.map('map', 'e65117ae7fb552545c72547b0314b47d', {
+var map4 = L.Wrld.map('map','e65117ae7fb552545c72547b0314b47d')
+var map4 = L.Wrld.map('map','e65117ae7fb552545c72547b0314b47d', {
   center: [29.95, -90.07],
   zoom: 15
 })
@@ -13,7 +13,10 @@ L.geoJSON(data, {
   onEachFeature: renameThisCreatePopupFunction
 }).addTo(map4)
 var renameThisCreatePopupFunction = function (feature, layer) {
-  layer.bindPopup(feature.properties.NAME)
+  layer.bindPopup(feature.properties.Name)
+}
+var renameThisCreatePopupFunction = function (feature, layer) {
+  layer.bindPopup(feature.properties.Website)
 }
 jQuery('#Arts Council of New Orleans').on('click', function () {
   map4.setView([29.952, -90.073], 17, {
