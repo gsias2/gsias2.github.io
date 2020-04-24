@@ -9,3 +9,6 @@ var bikeshareUrlString = 'https://opendata.arcgis.com/datasets/63aa98f68bd54e528
 jQuery.getJSON(bikeshareUrlString, function (data) {
   L.geoJSON(data).addTo(map4)
 })
+L.geoJSON(data, {
+  onEachFeature: renameThisCreatePopupFunction
+}).addTo(map4)
