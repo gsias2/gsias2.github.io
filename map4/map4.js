@@ -14,6 +14,9 @@ var map4 = L.Wrld.map('map4','e65117ae7fb552545c72547b0314b47d', {
  var Organization Name = function (feature, layer) {
   layer.bindPopup(feature.properties.Name)
  }
+ L.geoJSON(data, {
+   onEachFeature: renameThisCreatePopupFunction
+ }).addTo(map4)
  var Organization Website = function (feature, layer) {
    layer.bindPopup(feature.properties.Website)
  }
