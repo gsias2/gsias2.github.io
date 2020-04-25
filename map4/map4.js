@@ -3,7 +3,7 @@ var map4 = L.Wrld.map('map4','e65117ae7fb552545c72547b0314b47d', {
   zoom: 15
 })
  map4.themes.setWeather(L.Wrld.themes.weather.Rainy)
- map4.themes.setTime(L.Wrld.themes.time.Day)
+ map4.themes.setTime(L.Wrld.themes.time.Dawn)
  var nonprofiturl1 = 'https://opendata.arcgis.com/datasets/ada75a6799874e09aa61d05ba65038e5_0.geojson'
  jQuery.getJSON(nonprofiturl1, function (data) {
   L.geoJSON(data).addTo(map4)
