@@ -6,20 +6,13 @@ var map4 = L.Wrld.map('map4','e65117ae7fb552545c72547b0314b47d', {
  map4.themes.setTime(L.Wrld.themes.time.Dawn)
  var nonprofiturl1 = 'https://opendata.arcgis.com/datasets/ada75a6799874e09aa61d05ba65038e5_0.geojson'
  jQuery.getJSON(nonprofiturl1, function (data) {
-  L.geoJSON(data).addTo(map4)
+   L.geoJSON (data,{
+     onEachFeature: createPopup
+   }).addTo(map4)
+ var createPopup = function (feature, layer) {
+  layer.bindPopup(feature.properties.NonProfitName + "" <br>Website: "" feature.properties.Website)
+ }
 })
- L.geoJSON (data,{
-   onEachFeature: renameThisCreatePopupFunction
- }).addTo(map4)
- var OrganizationName = function (feature, layer) {
-  layer.bindPopup(feature.properties.NonProfitName)
- }
- L.geoJSON (data,{
-   onEachFeature: renameThisCreatePopupFunction
- }).addTo(map4)
- var OrganizationWebsite = function (feature, layer) {
-   layer.bindPopup(feature.properties.Website)
- }
  jQuery('#Arts Council of New Orleans').on('click', function () {
    map4.setView([29.952, -90.073], 17, {
     headingDegrees: -45,
