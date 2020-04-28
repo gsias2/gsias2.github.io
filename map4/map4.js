@@ -10,7 +10,7 @@ var map4 = L.Wrld.map('map4','e65117ae7fb552545c72547b0314b47d', {
      onEachFeature: createPopup
    }).addTo(map4)
  var createPopup = function (feature, layer) {
-  layer.bindPopup(feature.properties.NonProfitName + "" <br>Website: "" feature.properties.Website)
+  layer.bindPopup(feature.properties.NonProfitName + "" <br>Website: ""+ feature.properties.Website)
  }
 })
  jQuery('#Arts Council of New Orleans').on('click', function () {
